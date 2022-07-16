@@ -1,16 +1,9 @@
 setDefaultTab("Foi")
+-- Dancinha
 macro(250, "Dancinha", "Ctrl+D", function()
     turn(math.random(0, 3)) -- turn to a random direction.
  end)
 
-macro(100, "PRISON50%", function()   
-                        if g_game.isAttacking() and g_game.getAttackingCreature():isPlayer() and g_game.getAttackingCreature():getHealthPercent() < 50 
-            then
-                        say("Suiton:Prision ")
-            end
-            end)
-
-UI.Separator()
 
 -- ABRIR PORTAS
 if not storage.doorIds then
@@ -42,7 +35,7 @@ doorContainer:setHeight(35)
 doorContainer:setItems(storage.doorIds)
 doorId = properTable(storage.doorIds)
 
-clickDoor = macro(100, "Use Doors", function()
+clickDoor = macro(100, "Abrir Portas", function()
     for i, tile in ipairs(g_map.getTiles(posz())) do
         local item = tile:getTopUseThing()
         if item and table.find(doorId, item:getId()) then
